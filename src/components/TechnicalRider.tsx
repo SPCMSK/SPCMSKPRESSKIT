@@ -1,4 +1,5 @@
 import { useContent } from "@/contexts/ContentContext";
+import { Instagram, Music, Youtube, Disc } from "lucide-react";
 
 const TechnicalRider = () => {
   const { content } = useContent();
@@ -153,20 +154,21 @@ const TechnicalRider = () => {
               </h3>
                 <div className="flex flex-wrap gap-3">
                   {content.socialLinks.map((link, index) => {
-                    const iconMap: { [key: string]: string } = {
-                      "Instagram": "Instagram",
-                      "Spotify": "Music",
-                      "SoundCloud": "CloudIcon",
-                      "YouTube": "Youtube",
-                      "Bandcamp": "Disc",
-                      "Beatport": "Music"
+                    const getIcon = (platform: string) => {
+                      switch (platform) {
+                        case "Instagram": return Instagram;
+                        case "YouTube": return Youtube;
+                        case "Bandcamp": 
+                        case "Beatport": return Disc;
+                        default: return Music;
+                      }
                     };
-                    const iconName = iconMap[link.platform] || "Music";
-                    const IconComponent = require("lucide-react")[iconName];
+                    
+                    const IconComponent = getIcon(link.platform);
                     
                     const colorMap: { [key: string]: string } = {
                       "Instagram": "bg-pink-500 hover:bg-pink-600",
-                      "Spotify": "bg-green-500 hover:bg-green-600",
+                      "Spotify": "bg-green-500 hover:bg-green-600", 
                       "SoundCloud": "bg-orange-500 hover:bg-orange-600",
                       "YouTube": "bg-red-500 hover:bg-red-600",
                       "Bandcamp": "bg-blue-500 hover:bg-blue-600",
@@ -183,7 +185,7 @@ const TechnicalRider = () => {
                         className={`w-12 h-12 ${colorClass} rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-all duration-200`}
                         title={link.platform}
                       >
-                        {IconComponent && <IconComponent className="w-5 h-5 text-white" />}
+                        <IconComponent className="w-5 h-5 text-white" />
                       </a>
                     );
                   })}
