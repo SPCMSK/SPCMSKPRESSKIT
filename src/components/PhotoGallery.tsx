@@ -1,31 +1,7 @@
+import { useContent } from "@/contexts/ContentContext";
+
 const PhotoGallery = () => {
-  const photos = [
-    {
-      src: "/lovable-uploads/c00f4485-16d9-4e30-8b0d-860d61b21251.png",
-      alt: "SPC MSK Portrait 1",
-      featured: true
-    },
-    {
-      src: "/lovable-uploads/c09e4e77-c640-4983-9eb7-f3325b42c1e0.png",
-      alt: "SPC MSK Portrait 2",
-      featured: false
-    },
-    {
-      src: "/lovable-uploads/902318a4-6539-47db-8038-8cd1d4329fcc.png",
-      alt: "SPC MSK Portrait 3",
-      featured: false
-    },
-    {
-      src: "/lovable-uploads/932b3b5e-41ab-4e3c-90fe-29421471b824.png",
-      alt: "SPC MSK Portrait 4",
-      featured: false
-    },
-    {
-      src: "/lovable-uploads/58e2466a-b5aa-48ba-a0f9-6c3b1ba2fab2.png",
-      alt: "SPC MSK Portrait 5",
-      featured: true
-    }
-  ];
+  const { content } = useContent();
 
   return (
     <section className="py-20 bg-card">
@@ -41,7 +17,7 @@ const PhotoGallery = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {photos.map((photo, index) => (
+          {content.galleryPhotos.map((photo, index) => (
             <div 
               key={index}
               className={`relative group cursor-pointer overflow-hidden rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-glow ${

@@ -1,4 +1,7 @@
+import { useContent } from "@/contexts/ContentContext";
+
 const TechnicalRider = () => {
+  const { content } = useContent();
   const equipment = [
     {
       category: "CDJ Units",
@@ -25,38 +28,38 @@ const TechnicalRider = () => {
   const socialLinks = [
     {
       platform: "Instagram",
-      icon: "📸",
-      color: "bg-pink-500",
+      icon: "Instagram",
+      color: "bg-pink-500 hover:bg-pink-600",
       url: "https://www.instagram.com/spc.musik/"
     },
     {
       platform: "Spotify", 
-      icon: "🎧",
-      color: "bg-green-500",
+      icon: "Spotify",
+      color: "bg-green-500 hover:bg-green-600",
       url: "https://open.spotify.com/intl-es/artist/1N2pttRVzPS9LAxHwzVfTP?si=clREonUvTqOz00ippw6ANg"
     },
     {
       platform: "SoundCloud",
-      icon: "🎵",
-      color: "bg-orange-500",
+      icon: "SoundCloud",
+      color: "bg-orange-500 hover:bg-orange-600",
       url: "https://soundcloud.com/020301"
     },
     {
       platform: "YouTube",
-      icon: "📺",
-      color: "bg-red-500",
+      icon: "Youtube",
+      color: "bg-red-500 hover:bg-red-600",
       url: "https://www.youtube.com/@SPCMSK2"
     },
     {
-      platform: "Bandcamp",
-      icon: "🎶",
-      color: "bg-blue-500",
+      platform: "Disc",
+      icon: "Disc",
+      color: "bg-blue-500 hover:bg-blue-600",
       url: "https://spcmsk2.bandcamp.com"
     },
     {
       platform: "Beatport",
-      icon: "🎚️",
-      color: "bg-purple-500",
+      icon: "Music",
+      color: "bg-purple-500 hover:bg-purple-600",
       url: "https://www.beatport.com/es/artist/spcmsk/1247790"
     }
   ];
@@ -149,17 +152,41 @@ const TechnicalRider = () => {
                 Sígueme en Redes
               </h3>
                 <div className="flex flex-wrap gap-3">
-                  {socialLinks.map((link, index) => (
-                    <a 
-                      key={index}
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`w-12 h-12 ${link.color} rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform`}
-                    >
-                      <span className="text-white text-lg">{link.icon}</span>
-                    </a>
-                  ))}
+                  {content.socialLinks.map((link, index) => {
+                    const iconMap: { [key: string]: string } = {
+                      "Instagram": "Instagram",
+                      "Spotify": "Music",
+                      "SoundCloud": "CloudIcon",
+                      "YouTube": "Youtube",
+                      "Bandcamp": "Disc",
+                      "Beatport": "Music"
+                    };
+                    const iconName = iconMap[link.platform] || "Music";
+                    const IconComponent = require("lucide-react")[iconName];
+                    
+                    const colorMap: { [key: string]: string } = {
+                      "Instagram": "bg-pink-500 hover:bg-pink-600",
+                      "Spotify": "bg-green-500 hover:bg-green-600",
+                      "SoundCloud": "bg-orange-500 hover:bg-orange-600",
+                      "YouTube": "bg-red-500 hover:bg-red-600",
+                      "Bandcamp": "bg-blue-500 hover:bg-blue-600",
+                      "Beatport": "bg-purple-500 hover:bg-purple-600"
+                    };
+                    const colorClass = colorMap[link.platform] || "bg-gray-500 hover:bg-gray-600";
+                    
+                    return (
+                      <a 
+                        key={index}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`w-12 h-12 ${colorClass} rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-all duration-200`}
+                        title={link.platform}
+                      >
+                        {IconComponent && <IconComponent className="w-5 h-5 text-white" />}
+                      </a>
+                    );
+                  })}
                 </div>
               </div>
 

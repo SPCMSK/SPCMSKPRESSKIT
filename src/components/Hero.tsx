@@ -1,13 +1,15 @@
 import { Button } from "@/components/ui/button";
+import { useContent } from "@/contexts/ContentContext";
 
 const Hero = () => {
+  const { content } = useContent();
   return (
     <section className="min-h-screen relative flex items-center justify-center bg-gradient-dark overflow-hidden">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
         style={{
-          backgroundImage: "url('/lovable-uploads/932b3b5e-41ab-4e3c-90fe-29421471b824.png')"
+          backgroundImage: `url('${content.heroData.backgroundImage}')`
         }}
       />
       
@@ -24,16 +26,16 @@ const Hero = () => {
               <span className="text-foreground">MSK</span>
             </h1>
             <div className="text-brand-teal font-display font-medium text-xl md:text-2xl tracking-widest uppercase">
-              Electronic Press Kit
+              {content.heroData.subtitle}
             </div>
           </div>
           
           <div className="space-y-2">
             <p className="text-text-secondary font-medium text-lg md:text-xl">
-              DJ y Productor Chileno
+              {content.heroData.description1}
             </p>
             <p className="text-text-muted text-base md:text-lg">
-              Viña del Mar, Chile
+              {content.heroData.description2}
             </p>
           </div>
           

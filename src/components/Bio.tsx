@@ -1,4 +1,7 @@
+import { useContent } from "@/contexts/ContentContext";
+
 const Bio = () => {
+  const { content } = useContent();
   return (
     <section className="py-20 bg-background">
       <div className="max-w-6xl mx-auto px-6">
@@ -7,27 +10,27 @@ const Bio = () => {
           <div className="space-y-8">
             <div className="space-y-4">
               <h2 className="font-display font-bold text-4xl md:text-5xl text-foreground">
-                Acerca de <span className="text-brand-teal">SPC MSK</span>
+                {content.bioData.title}
               </h2>
               <div className="w-20 h-1 bg-brand-teal rounded-full"></div>
             </div>
             
             <div className="space-y-6 text-text-secondary leading-relaxed">
-              <p className="text-lg">
-                <strong className="text-brand-teal">SPC MSK</strong> es un DJ y productor chileno de 24 años, oriundo de Viña del Mar, cuya identidad sonora se mueve con maestría entre la energía y la hipnosis.
-              </p>
+              <p className="text-lg" dangerouslySetInnerHTML={{ 
+                __html: content.bioData.paragraph1.replace(/\*\*(.*?)\*\*/g, '<strong class="text-brand-teal">$1</strong>') 
+              }} />
               
-              <p>
-                Su propuesta musical es versátil y potente, fusionando <strong className="text-brand-teal">hardgroove percusivo</strong> con <strong className="text-brand-teal">techno rápido y groovero</strong>. Su pasión nació a los 13 años, influenciado por gigantes del EDM como Skrillex, Kill The Noise, Flosstradamus y Zomboy.
-              </p>
+              <p dangerouslySetInnerHTML={{ 
+                __html: content.bioData.paragraph2.replace(/\*\*(.*?)\*\*/g, '<strong class="text-brand-teal">$1</strong>') 
+              }} />
               
-              <p>
-                A los 16, se sumergió de lleno en el techno, el género que definiría su carrera. Esta trayectoria se complementa con una sólida base musical adquirida en su etapa escolar, donde aprendió a tocar guitarra, bajo y batería, elementos que enriquecen su visión como productor.
-              </p>
+              <p dangerouslySetInnerHTML={{ 
+                __html: content.bioData.paragraph3.replace(/\*\*(.*?)\*\*/g, '<strong class="text-brand-teal">$1</strong>') 
+              }} />
               
-              <p>
-                Su carrera ha tenido un <strong className="text-brand-teal">ascenso notable</strong>, marcando presencia en los line-ups de destacados clubes y escenarios como <strong>Radikals, Mimas Club, Woo Club, The House, Club La Sala, Espacio 93 Valpo</strong> y el <strong>Festival Feztival</strong>.
-              </p>
+              <p dangerouslySetInnerHTML={{ 
+                __html: content.bioData.paragraph4.replace(/\*\*(.*?)\*\*/g, '<strong class="text-brand-teal">$1</strong>') 
+              }} />
             </div>
           </div>
           
@@ -35,7 +38,7 @@ const Bio = () => {
           <div className="relative">
             <div className="relative rounded-2xl overflow-hidden shadow-card">
               <img 
-                src="/lovable-uploads/58e2466a-b5aa-48ba-a0f9-6c3b1ba2fab2.png"
+                src={content.bioData.image}
                 alt="SPC MSK Portrait"
                 className="w-full h-full object-cover"
               />

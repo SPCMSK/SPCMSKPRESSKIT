@@ -1,5 +1,12 @@
+import { useState } from "react";
+import AdminPanel from "./AdminPanel";
+
 const Footer = () => {
+  const [showAdmin, setShowAdmin] = useState(false);
+
   return (
+    <>
+      <AdminPanel isOpen={showAdmin} onClose={() => setShowAdmin(false)} />
     <footer className="bg-brand-darker py-12 border-t border-border">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid md:grid-cols-3 gap-8 text-center md:text-left">
@@ -44,9 +51,16 @@ const Footer = () => {
           <p className="text-text-muted text-sm">
             Kit de Prensa Electrónico • Diseñado para Profesionales de Medios e Industria
           </p>
+          <button 
+            onClick={() => setShowAdmin(true)}
+            className="mt-4 text-xs text-text-muted hover:text-brand-teal transition-colors"
+          >
+            Admin Panel
+          </button>
         </div>
       </div>
     </footer>
+    </>
   );
 };
 
