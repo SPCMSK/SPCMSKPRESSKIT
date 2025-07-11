@@ -26,27 +26,38 @@ const TechnicalRider = () => {
     {
       platform: "Instagram",
       icon: "📸",
-      color: "bg-pink-500"
+      color: "bg-pink-500",
+      url: "https://www.instagram.com/spc.musik/"
     },
     {
-      platform: "SoundCloud", 
-      icon: "🎵",
-      color: "bg-orange-500"
-    },
-    {
-      platform: "Spotify",
+      platform: "Spotify", 
       icon: "🎧",
-      color: "bg-green-500"
+      color: "bg-green-500",
+      url: "https://open.spotify.com/intl-es/artist/1N2pttRVzPS9LAxHwzVfTP?si=clREonUvTqOz00ippw6ANg"
     },
     {
-      platform: "Affinity Designer",
-      icon: "🎨",
-      color: "bg-blue-500"
+      platform: "SoundCloud",
+      icon: "🎵",
+      color: "bg-orange-500",
+      url: "https://soundcloud.com/020301"
     },
     {
-      platform: "Spotify",
-      icon: "🟢",
-      color: "bg-green-600"
+      platform: "YouTube",
+      icon: "📺",
+      color: "bg-red-500",
+      url: "https://www.youtube.com/@SPCMSK2"
+    },
+    {
+      platform: "Bandcamp",
+      icon: "🎶",
+      color: "bg-blue-500",
+      url: "https://spcmsk2.bandcamp.com"
+    },
+    {
+      platform: "Beatport",
+      icon: "🎚️",
+      color: "bg-purple-500",
+      url: "https://www.beatport.com/es/artist/spcmsk/1247790"
     }
   ];
 
@@ -83,20 +94,20 @@ const TechnicalRider = () => {
 
             <div className="p-6 bg-card rounded-xl border border-border">
               <h4 className="font-display font-semibold text-lg text-foreground mb-4">
-                Additional Requirements
+                Requerimientos Adicionales
               </h4>
               <ul className="space-y-2 text-text-secondary">
                 <li className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-brand-teal rounded-full"></div>
-                  <span>Professional sound system with adequate power</span>
+                  <span>Sistema de sonido profesional con potencia adecuada</span>
                 </li>
                 <li className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-brand-teal rounded-full"></div>
-                  <span>Dedicated DJ booth with proper lighting</span>
+                  <span>Cabina de DJ dedicada con iluminación adecuada</span>
                 </li>
                 <li className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-brand-teal rounded-full"></div>
-                  <span>Secure area for equipment setup</span>
+                  <span>Área segura para instalación de equipos</span>
                 </li>
               </ul>
             </div>
@@ -106,7 +117,7 @@ const TechnicalRider = () => {
           <div className="space-y-8">
             <div className="space-y-4">
               <h2 className="font-display font-bold text-4xl md:text-5xl text-foreground">
-                Get in <span className="text-brand-teal">Touch</span>
+                Ponte en <span className="text-brand-teal">Contacto</span>
               </h2>
               <div className="w-20 h-1 bg-brand-teal rounded-full"></div>
             </div>
@@ -114,9 +125,9 @@ const TechnicalRider = () => {
             {/* Contact Info */}
             <div className="space-y-6">
               <div className="p-6 bg-card rounded-xl border border-border">
-                <h3 className="font-display font-semibold text-xl text-brand-teal mb-4">
-                  Booking & Management
-                </h3>
+              <h3 className="font-display font-semibold text-xl text-brand-teal mb-4">
+                Reservas y Management
+              </h3>
                 <div className="space-y-3">
                   <div className="flex items-center space-x-3">
                     <div className="w-8 h-8 bg-brand-teal/20 rounded-full flex items-center justify-center">
@@ -134,17 +145,20 @@ const TechnicalRider = () => {
 
               {/* Social Links */}
               <div className="p-6 bg-card rounded-xl border border-border">
-                <h3 className="font-display font-semibold text-xl text-brand-teal mb-4">
-                  Follow SPC MSK
-                </h3>
+              <h3 className="font-display font-semibold text-xl text-brand-teal mb-4">
+                Sígueme en Redes
+              </h3>
                 <div className="flex flex-wrap gap-3">
                   {socialLinks.map((link, index) => (
-                    <div 
+                    <a 
                       key={index}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className={`w-12 h-12 ${link.color} rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform`}
                     >
                       <span className="text-white text-lg">{link.icon}</span>
-                    </div>
+                    </a>
                   ))}
                 </div>
               </div>
@@ -156,8 +170,8 @@ const TechnicalRider = () => {
                   <div className="text-text-muted text-sm">Años</div>
                 </div>
                 <div className="p-4 bg-card rounded-xl border border-border text-center">
-                  <div className="text-2xl font-display font-bold text-brand-teal">10+</div>
-                  <div className="text-text-muted text-sm">Años en la escena</div>
+                  <div className="text-2xl font-display font-bold text-brand-teal">3</div>
+                  <div className="text-text-muted text-sm">Años de exp</div>
                 </div>
               </div>
             </div>
@@ -172,7 +186,7 @@ const TechnicalRider = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent"></div>
               <div className="absolute bottom-4 left-4">
                 <span className="bg-brand-teal text-brand-darker px-3 py-1 rounded-full text-sm font-medium">
-                  Live Performance
+                  Presentación en Vivo
                 </span>
               </div>
             </div>

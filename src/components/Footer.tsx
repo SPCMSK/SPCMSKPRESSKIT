@@ -10,17 +10,17 @@ const Footer = () => {
               <span className="text-foreground">MSK</span>
             </div>
             <p className="text-text-muted">
-              Chilean DJ & Producer
+              DJ y Productor Chileno
               <br />
-              Electronic Music Artist
+              Artista de Música Electrónica
             </p>
           </div>
 
           {/* Contact */}
           <div className="space-y-4">
-            <h3 className="font-display font-semibold text-foreground">Contact</h3>
+            <h3 className="font-display font-semibold text-foreground">Contacto</h3>
             <div className="space-y-2 text-text-secondary">
-              <p>Booking & Management</p>
+              <p>Reservas y Management</p>
               <a 
                 href="mailto:spcmsk.booking@gmail.com"
                 className="text-brand-teal hover:text-brand-teal-dark transition-colors"
@@ -34,15 +34,15 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="font-display font-semibold text-foreground">Press Kit</h3>
             <div className="space-y-2 text-text-secondary text-sm">
-              <p>All press materials available for editorial use</p>
-              <p>© 2024 SPC MSK. All rights reserved.</p>
+              <p>Todos los materiales de prensa disponibles para uso editorial</p>
+              <p>© 2024 SPC MSK. Todos los derechos reservados.</p>
             </div>
           </div>
         </div>
 
         <div className="mt-12 pt-8 border-t border-border text-center">
           <p className="text-text-muted text-sm">
-            Electronic Press Kit • Designed for Media & Industry Professionals
+            Kit de Prensa Electrónico • Diseñado para Profesionales de Medios e Industria
           </p>
         </div>
       </div>

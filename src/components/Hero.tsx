@@ -30,7 +30,7 @@ const Hero = () => {
           
           <div className="space-y-2">
             <p className="text-text-secondary font-medium text-lg md:text-xl">
-              Chilean DJ & Producer
+              DJ y Productor Chileno
             </p>
             <p className="text-text-muted text-base md:text-lg">
               Viña del Mar, Chile
@@ -43,7 +43,7 @@ const Hero = () => {
               size="lg" 
               className="px-8 py-4 text-lg rounded-xl"
             >
-              Download Press Kit
+              Descargar Press Kit
             </Button>
           </div>
         </div>

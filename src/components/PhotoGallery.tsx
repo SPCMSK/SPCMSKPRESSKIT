@@ -6,33 +6,23 @@ const PhotoGallery = () => {
       featured: true
     },
     {
-      src: "/lovable-uploads/c717c04b-9de9-4c8f-974f-ba00a4d56d52.png",
+      src: "/lovable-uploads/c09e4e77-c640-4983-9eb7-f3325b42c1e0.png",
       alt: "SPC MSK Portrait 2",
       featured: false
     },
     {
-      src: "/lovable-uploads/c09e4e77-c640-4983-9eb7-f3325b42c1e0.png",
+      src: "/lovable-uploads/902318a4-6539-47db-8038-8cd1d4329fcc.png",
       alt: "SPC MSK Portrait 3",
       featured: false
     },
     {
-      src: "/lovable-uploads/902318a4-6539-47db-8038-8cd1d4329fcc.png",
+      src: "/lovable-uploads/932b3b5e-41ab-4e3c-90fe-29421471b824.png",
       alt: "SPC MSK Portrait 4",
       featured: false
     },
     {
-      src: "/lovable-uploads/5b6ee93e-1ce7-4c83-98ef-8a7a21f5935f.png",
+      src: "/lovable-uploads/58e2466a-b5aa-48ba-a0f9-6c3b1ba2fab2.png",
       alt: "SPC MSK Portrait 5",
-      featured: false
-    },
-    {
-      src: "/lovable-uploads/3d9b2b10-f6ae-4042-9481-72736477a753.png",
-      alt: "SPC MSK Portrait 6",
-      featured: false
-    },
-    {
-      src: "/lovable-uploads/d8ef8f2f-1a76-4183-a980-cdd21ce3e45e.png",
-      alt: "SPC MSK Portrait 7",
       featured: true
     }
   ];
@@ -46,7 +36,7 @@ const PhotoGallery = () => {
           </h2>
           <div className="w-20 h-1 bg-brand-teal rounded-full mx-auto mb-6"></div>
           <p className="text-text-secondary text-lg max-w-2xl mx-auto">
-            High-resolution press photos available for download. All images are cleared for editorial use.
+            Fotos de prensa en alta resolución disponibles para descarga. Todas las imágenes están autorizadas para uso editorial.
           </p>
         </div>
 
@@ -79,7 +69,7 @@ const PhotoGallery = () => {
               {photo.featured && (
                 <div className="absolute top-4 left-4">
                   <span className="bg-brand-teal text-brand-darker px-3 py-1 rounded-full text-sm font-medium">
-                    Featured
+                    Destacada
                   </span>
                 </div>
               )}
@@ -89,7 +79,7 @@ const PhotoGallery = () => {
 
         <div className="text-center mt-12">
           <p className="text-text-muted text-sm">
-            Click on any image to download high-resolution version • All photos by SPC MSK Press Team
+            Haz clic en cualquier imagen para descargar la versión en alta resolución • Todas las fotos por SPC MSK Press Team
           </p>
         </div>
       </div>

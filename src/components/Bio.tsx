@@ -7,7 +7,7 @@ const Bio = () => {
           <div className="space-y-8">
             <div className="space-y-4">
               <h2 className="font-display font-bold text-4xl md:text-5xl text-foreground">
-                About <span className="text-brand-teal">SPC MSK</span>
+                Acerca de <span className="text-brand-teal">SPC MSK</span>
               </h2>
               <div className="w-20 h-1 bg-brand-teal rounded-full"></div>
             </div>
