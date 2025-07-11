@@ -18,6 +18,7 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        presskit: "bg-brand-teal hover:bg-brand-teal-dark text-brand-darker font-display font-semibold shadow-glow transition-all duration-300 hover:shadow-glow hover:scale-105",
       },
       size: {
         default: "h-10 px-4 py-2",
