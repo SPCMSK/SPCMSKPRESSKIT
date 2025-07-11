@@ -1,16 +1,7 @@
+import { useContent } from "@/contexts/ContentContext";
+
 const VideoSets = () => {
-  const videos = [
-    {
-      id: "rQebU3T_oqU",
-      title: "SPC MSK - Live Set 1",
-      embedUrl: "https://www.youtube.com/embed/rQebU3T_oqU?si=86h3eswFHqhLiDDF"
-    },
-    {
-      id: "ugXKAKb_LmY", 
-      title: "SPC MSK - Live Set 2",
-      embedUrl: "https://www.youtube.com/embed/ugXKAKb_LmY?si=Ur_bz0eKRFnEqfD0"
-    }
-  ];
+  const { content } = useContent();
 
   return (
     <section className="py-20 bg-card">
@@ -26,7 +17,7 @@ const VideoSets = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {videos.map((video, index) => (
+          {content.videos.map((video, index) => (
             <div key={video.id} className="space-y-4">
               <div className="relative rounded-xl overflow-hidden shadow-glow">
                 <iframe 
@@ -46,7 +37,7 @@ const VideoSets = () => {
                   {video.title}
                 </h3>
                 <p className="text-text-muted text-sm">
-                  Presentación en vivo • YouTube
+                  {video.description || "Presentación en vivo • YouTube"}
                 </p>
               </div>
             </div>

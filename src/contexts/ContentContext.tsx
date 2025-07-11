@@ -25,6 +25,12 @@ interface ContentData {
     platform: string;
     url: string;
   }>;
+  videos: Array<{
+    id: string;
+    title: string;
+    embedUrl: string;
+    description?: string;
+  }>;
 }
 
 interface ContentContextType {
@@ -62,6 +68,20 @@ const defaultContent: ContentData = {
     { platform: "YouTube", url: "https://www.youtube.com/@SPCMSK2" },
     { platform: "Bandcamp", url: "https://spcmsk2.bandcamp.com" },
     { platform: "Beatport", url: "https://www.beatport.com/es/artist/spcmsk/1247790" }
+  ],
+  videos: [
+    {
+      id: "rQebU3T_oqU",
+      title: "SPC MSK - Live Set 1",
+      embedUrl: "https://www.youtube.com/embed/rQebU3T_oqU?si=86h3eswFHqhLiDDF",
+      description: "Presentación en vivo • YouTube"
+    },
+    {
+      id: "ugXKAKb_LmY", 
+      title: "SPC MSK - Live Set 2",
+      embedUrl: "https://www.youtube.com/embed/ugXKAKb_LmY?si=Ur_bz0eKRFnEqfD0",
+      description: "Presentación en vivo • YouTube"
+    }
   ]
 };
 

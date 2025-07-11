@@ -27,6 +27,7 @@ const AdminPanel = ({ isOpen, onClose }: AdminPanelProps) => {
   const [bioData, setBioData] = useState(content.bioData);
   const [galleryPhotos, setGalleryPhotos] = useState(content.galleryPhotos);
   const [socialLinks, setSocialLinks] = useState(content.socialLinks);
+  const [videos, setVideos] = useState(content.videos);
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -51,7 +52,8 @@ const AdminPanel = ({ isOpen, onClose }: AdminPanelProps) => {
       heroData,
       bioData,
       galleryPhotos,
-      socialLinks
+      socialLinks,
+      videos
     });
     
     toast({
@@ -76,6 +78,7 @@ const AdminPanel = ({ isOpen, onClose }: AdminPanelProps) => {
       setBioData(content.bioData);
       setGalleryPhotos(content.galleryPhotos);
       setSocialLinks(content.socialLinks);
+      setVideos(content.videos);
     }
   }, [isOpen, content]);
 
@@ -153,10 +156,11 @@ const AdminPanel = ({ isOpen, onClose }: AdminPanelProps) => {
             </form>
           ) : (
             <Tabs defaultValue="hero" className="w-full">
-              <TabsList className="grid w-full grid-cols-4">
+              <TabsList className="grid w-full grid-cols-5">
                 <TabsTrigger value="hero">Hero</TabsTrigger>
                 <TabsTrigger value="bio">Bio</TabsTrigger>
                 <TabsTrigger value="gallery">Galería</TabsTrigger>
+                <TabsTrigger value="videos">Videos</TabsTrigger>
                 <TabsTrigger value="social">Redes</TabsTrigger>
               </TabsList>
 
@@ -312,6 +316,85 @@ const AdminPanel = ({ isOpen, onClose }: AdminPanelProps) => {
                       </CardContent>
                     </Card>
                   ))}
+                </div>
+              </TabsContent>
+
+              <TabsContent value="videos" className="space-y-4">
+                <h3 className="text-lg font-semibold">Editar Videos de Presentaciones</h3>
+                <div className="space-y-4">
+                  {videos.map((video, index) => (
+                    <Card key={index}>
+                      <CardContent className="p-4">
+                        <div className="space-y-4">
+                          <div className="grid grid-cols-2 gap-4">
+                            <div className="space-y-2">
+                              <Label>Título del Video</Label>
+                              <Input
+                                value={video.title}
+                                onChange={(e) => {
+                                  const newVideos = [...videos];
+                                  newVideos[index].title = e.target.value;
+                                  setVideos(newVideos);
+                                }}
+                                placeholder="Título del video"
+                              />
+                            </div>
+                            <div className="space-y-2">
+                              <Label>ID del Video de YouTube</Label>
+                              <Input
+                                value={video.id}
+                                onChange={(e) => {
+                                  const newVideos = [...videos];
+                                  newVideos[index].id = e.target.value;
+                                  newVideos[index].embedUrl = `https://www.youtube.com/embed/${e.target.value}`;
+                                  setVideos(newVideos);
+                                }}
+                                placeholder="ID del video (ej: rQebU3T_oqU)"
+                              />
+                            </div>
+                          </div>
+                          <div className="space-y-2">
+                            <Label>Descripción</Label>
+                            <Input
+                              value={video.description || ""}
+                              onChange={(e) => {
+                                const newVideos = [...videos];
+                                newVideos[index].description = e.target.value;
+                                setVideos(newVideos);
+                              }}
+                              placeholder="Descripción del video"
+                            />
+                          </div>
+                          <div className="flex justify-end">
+                            <Button
+                              size="sm"
+                              variant="destructive"
+                              onClick={() => {
+                                const newVideos = videos.filter((_, i) => i !== index);
+                                setVideos(newVideos);
+                              }}
+                            >
+                              Eliminar Video
+                            </Button>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                  <Button
+                    onClick={() => {
+                      const newVideo = {
+                        id: "",
+                        title: "Nuevo Video",
+                        embedUrl: "",
+                        description: "Presentación en vivo • YouTube"
+                      };
+                      setVideos([...videos, newVideo]);
+                    }}
+                    className="w-full"
+                  >
+                    Agregar Nuevo Video
+                  </Button>
                 </div>
               </TabsContent>
 
