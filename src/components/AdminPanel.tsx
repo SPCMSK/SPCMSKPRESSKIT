@@ -56,6 +56,9 @@ const AdminPanel = ({ isOpen, onClose }: AdminPanelProps) => {
       videos
     });
     
+    // Trigger event to update preview immediately
+    window.dispatchEvent(new CustomEvent('adminContentUpdated'));
+    
     toast({
       title: "Guardado exitoso",
       description: "Los cambios han sido guardados correctamente"

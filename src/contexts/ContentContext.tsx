@@ -90,17 +90,47 @@ const ContentContext = createContext<ContentContextType | undefined>(undefined);
 export const ContentProvider = ({ children }: { children: ReactNode }) => {
   const [content, setContent] = useState<ContentData>(defaultContent);
 
-  // Load saved content from localStorage on mount
+  // Load saved content from localStorage on mount and listen for changes
   useEffect(() => {
-    const savedContent = localStorage.getItem('adminData');
-    if (savedContent) {
-      try {
-        const parsed = JSON.parse(savedContent);
-        setContent(prev => ({ ...prev, ...parsed }));
-      } catch (error) {
-        console.error('Error loading saved content:', error);
+    const loadContent = () => {
+      const savedContent = localStorage.getItem('adminData');
+      if (savedContent) {
+        try {
+          const parsed = JSON.parse(savedContent);
+          setContent(prev => ({ ...prev, ...parsed }));
+        } catch (error) {
+          console.error('Error loading saved content:', error);
+        }
       }
-    }
+    };
+
+    // Load initial content
+    loadContent();
+
+    // Listen for localStorage changes (from admin panel)
+    const handleStorageChange = (e: StorageEvent) => {
+      if (e.key === 'adminData' && e.newValue) {
+        try {
+          const parsed = JSON.parse(e.newValue);
+          setContent(prev => ({ ...prev, ...parsed }));
+        } catch (error) {
+          console.error('Error loading updated content:', error);
+        }
+      }
+    };
+
+    // Also listen for custom events (for same-tab updates)
+    const handleContentUpdate = () => {
+      loadContent();
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    window.addEventListener('adminContentUpdated', handleContentUpdate);
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+      window.removeEventListener('adminContentUpdated', handleContentUpdate);
+    };
   }, []);
 
   const updateContent = (newContent: Partial<ContentData>) => {
