@@ -1,5 +1,5 @@
 import { useContent } from "@/contexts/ContentContext";
-import { Instagram, Music, Youtube, Disc } from "lucide-react";
+import { SocialLinks } from "@/components/ui/social-icons";
 
 const TechnicalRider = () => {
   const { content } = useContent();
@@ -149,47 +149,14 @@ const TechnicalRider = () => {
 
               {/* Social Links */}
               <div className="p-6 bg-card rounded-xl border border-border">
-              <h3 className="font-display font-semibold text-xl text-brand-teal mb-4">
-                Sígueme en Redes
-              </h3>
-                <div className="flex flex-wrap gap-3">
-                  {content.socialLinks.map((link, index) => {
-                    const getIcon = (platform: string) => {
-                      switch (platform) {
-                        case "Instagram": return Instagram;
-                        case "YouTube": return Youtube;
-                        case "Bandcamp": 
-                        case "Beatport": return Disc;
-                        default: return Music;
-                      }
-                    };
-                    
-                    const IconComponent = getIcon(link.platform);
-                    
-                    const colorMap: { [key: string]: string } = {
-                      "Instagram": "bg-pink-500 hover:bg-pink-600",
-                      "Spotify": "bg-green-500 hover:bg-green-600", 
-                      "SoundCloud": "bg-orange-500 hover:bg-orange-600",
-                      "YouTube": "bg-red-500 hover:bg-red-600",
-                      "Bandcamp": "bg-blue-500 hover:bg-blue-600",
-                      "Beatport": "bg-purple-500 hover:bg-purple-600"
-                    };
-                    const colorClass = colorMap[link.platform] || "bg-gray-500 hover:bg-gray-600";
-                    
-                    return (
-                      <a 
-                        key={index}
-                        href={link.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`w-12 h-12 ${colorClass} rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-all duration-200`}
-                        title={link.platform}
-                      >
-                        <IconComponent className="w-5 h-5 text-white" />
-                      </a>
-                    );
-                  })}
-                </div>
+                <h3 className="font-display font-semibold text-xl text-brand-teal mb-4">
+                  Sígueme en Redes
+                </h3>
+                <SocialLinks 
+                  links={content.socialLinks} 
+                  size="md"
+                  className="justify-center"
+                />
               </div>
 
               {/* Stats */}

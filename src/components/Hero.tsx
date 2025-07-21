@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { useContent } from "@/contexts/ContentContext";
+import { usePressKit } from "@/hooks/use-presskit";
+import { Download, FileText } from "lucide-react";
 
 const Hero = () => {
   const { content } = useContent();
+  const { downloadPressKitText, downloadPressKitJSON } = usePressKit();
   return (
     <section className="min-h-screen relative flex items-center justify-center bg-gradient-dark overflow-hidden">
       {/* Background Image */}
@@ -21,10 +24,8 @@ const Hero = () => {
       <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
         <div className="space-y-8">
           <div className="space-y-4">
-            <h1 className="font-display font-black text-8xl md:text-9xl lg:text-[12rem] leading-none">
-              <span className="text-brand-teal">SPC</span>
-              <br />
-              <span className="text-foreground">MSK</span>
+            <h1 className="font-display font-black text-6xl md:text-8xl lg:text-9xl leading-none">
+              <span className="text-brand-teal">{content.heroData.title}</span>
             </h1>
             <div className="text-brand-teal font-display font-medium text-xl md:text-2xl tracking-widest uppercase">
               {content.heroData.subtitle}
@@ -40,13 +41,24 @@ const Hero = () => {
             </p>
           </div>
           
-          <div className="pt-8">
+          <div className="pt-8 flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button 
+              onClick={downloadPressKitText}
               variant="presskit"
               size="lg" 
-              className="px-8 py-4 text-lg rounded-xl"
+              className="px-6 py-3 text-base rounded-xl flex items-center gap-2"
             >
-              Descargar Press Kit
+              <FileText className="w-5 h-5" />
+              Descargar Press Kit (TXT)
+            </Button>
+            <Button 
+              onClick={downloadPressKitJSON}
+              variant="outline"
+              size="lg" 
+              className="px-6 py-3 text-base rounded-xl flex items-center gap-2 border-brand-teal text-brand-teal hover:bg-brand-teal hover:text-brand-darker"
+            >
+              <Download className="w-5 h-5" />
+              Descargar Datos (JSON)
             </Button>
           </div>
         </div>

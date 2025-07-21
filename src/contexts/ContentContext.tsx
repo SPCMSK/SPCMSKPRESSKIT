@@ -52,7 +52,7 @@ const defaultContent: ContentData = {
     paragraph1: "SPC MSK es un DJ y productor chileno de 24 años, oriundo de Viña del Mar, cuya identidad sonora se mueve con maestría entre la energía y la hipnosis.",
     paragraph2: "Su propuesta musical es versátil y potente, fusionando hardgroove percusivo con techno rápido y groovero. Su pasión nació a los 13 años, influenciado por gigantes del EDM como Skrillex, Kill The Noise, Flosstradamus y Zomboy.",
     paragraph3: "A los 16, se sumergió de lleno en el techno, el género que definiría su carrera. Esta trayectoria se complementa con una sólida base musical adquirida en su etapa escolar, donde aprendió a tocar guitarra, bajo y batería, elementos que enriquecen su visión como productor.",
-    paragraph4: "Su carrera ha tenido un ascenso notable, marcando presencia en los line-ups de destacados clubes y escenarios como Radikals, Mimas Club, Woo Club, The House, Club La Sala, Espacio 93 Valpo y el Festival Feztival."
+    paragraph4: "Su carrera ha tenido un ascenso notable, marcando presencia en los line-ups de destacados clubes y escenarios como Radikals, Mimas Club, Chaisenroom, Woo Club, The House, Club La Sala, Espacio 93 Valpo y el Festival Feztival."
   },
   galleryPhotos: [
     { src: "/lovable-uploads/c00f4485-16d9-4e30-8b0d-860d61b21251.png", alt: "SPC MSK Portrait 1", featured: true },

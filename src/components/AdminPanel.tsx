@@ -6,7 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
-import { X, Upload, Save, LogOut, Eye, EyeOff } from "lucide-react";
+import { X, Upload, Save, LogOut, Eye, EyeOff, Trash2, Plus } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useContent } from "@/contexts/ContentContext";
 
@@ -60,8 +60,8 @@ const AdminPanel = ({ isOpen, onClose }: AdminPanelProps) => {
     window.dispatchEvent(new CustomEvent('adminContentUpdated'));
     
     toast({
-      title: "Guardado exitoso",
-      description: "Los cambios han sido guardados correctamente"
+      title: "✅ Guardado exitoso",
+      description: "Los cambios han sido guardados correctamente y se han actualizado en el sitio web"
     });
   };
 
@@ -153,9 +153,6 @@ const AdminPanel = ({ isOpen, onClose }: AdminPanelProps) => {
               <Button type="submit" className="w-full">
                 Iniciar Sesión
               </Button>
-              <p className="text-sm text-muted-foreground text-center">
-                Credenciales: admin@spcmsk.com / spcmsk2024
-              </p>
             </form>
           ) : (
             <Tabs defaultValue="hero" className="w-full">
@@ -314,11 +311,35 @@ const AdminPanel = ({ isOpen, onClose }: AdminPanelProps) => {
                             >
                               Toggle
                             </Button>
+                            <Button
+                              size="sm"
+                              variant="destructive"
+                              onClick={() => {
+                                const newPhotos = galleryPhotos.filter((_, i) => i !== index);
+                                setGalleryPhotos(newPhotos);
+                              }}
+                            >
+                              <Trash2 className="w-4 h-4" />
+                            </Button>
                           </div>
                         </div>
                       </CardContent>
                     </Card>
                   ))}
+                  <Button
+                    onClick={() => {
+                      const newPhoto = {
+                        src: "",
+                        alt: "Nueva imagen",
+                        featured: false
+                      };
+                      setGalleryPhotos([...galleryPhotos, newPhoto]);
+                    }}
+                    className="w-full"
+                  >
+                    <Plus className="w-4 h-4 mr-2" />
+                    Agregar Nueva Foto
+                  </Button>
                 </div>
               </TabsContent>
 
@@ -431,9 +452,34 @@ const AdminPanel = ({ isOpen, onClose }: AdminPanelProps) => {
                             />
                           </div>
                         </div>
+                        <div className="flex justify-end mt-2">
+                          <Button
+                            size="sm"
+                            variant="destructive"
+                            onClick={() => {
+                              const newLinks = socialLinks.filter((_, i) => i !== index);
+                              setSocialLinks(newLinks);
+                            }}
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </Button>
+                        </div>
                       </CardContent>
                     </Card>
                   ))}
+                  <Button
+                    onClick={() => {
+                      const newLink = {
+                        platform: "Nueva Red Social",
+                        url: "https://"
+                      };
+                      setSocialLinks([...socialLinks, newLink]);
+                    }}
+                    className="w-full"
+                  >
+                    <Plus className="w-4 h-4 mr-2" />
+                    Agregar Nueva Red Social
+                  </Button>
                 </div>
               </TabsContent>
             </Tabs>

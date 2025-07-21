@@ -1,8 +1,11 @@
 import { useState } from "react";
 import AdminPanel from "./AdminPanel";
+import { SocialLinks } from "@/components/ui/social-icons";
+import { useContent } from "@/contexts/ContentContext";
 
 const Footer = () => {
   const [showAdmin, setShowAdmin] = useState(false);
+  const { content } = useContent();
 
   return (
     <>
@@ -35,6 +38,13 @@ const Footer = () => {
                 spcmsk.booking@gmail.com
               </a>
             </div>
+            <div className="mt-4">
+              <SocialLinks 
+                links={content.socialLinks} 
+                size="sm"
+                className="justify-center md:justify-start"
+              />
+            </div>
           </div>
 
           {/* Legal */}
@@ -51,12 +61,15 @@ const Footer = () => {
           <p className="text-text-muted text-sm">
             Kit de Prensa Electrónico • Diseñado para Profesionales de Medios e Industria
           </p>
-          <button 
-            onClick={() => setShowAdmin(true)}
-            className="mt-4 text-xs text-text-muted hover:text-brand-teal transition-colors"
-          >
-            Admin Panel
-          </button>
+          <div className="mt-4 opacity-30 hover:opacity-100 transition-opacity">
+            <button 
+              onClick={() => setShowAdmin(true)}
+              className="text-xs text-text-muted hover:text-brand-teal transition-colors"
+              title="Panel de Administración"
+            >
+              •
+            </button>
+          </div>
         </div>
       </div>
     </footer>

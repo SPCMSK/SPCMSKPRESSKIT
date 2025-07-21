@@ -1,7 +1,27 @@
 import { useContent } from "@/contexts/ContentContext";
+import { Download } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const PhotoGallery = () => {
   const { content } = useContent();
+
+  const handleDownload = async (imageUrl: string, imageName: string) => {
+    try {
+      const response = await fetch(imageUrl);
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `${imageName.replace(/\s+/g, '_')}.jpg`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      // Fallback: open image in new tab
+      window.open(imageUrl, '_blank');
+    }
+  };
 
   return (
     <section className="py-20 bg-card">
@@ -20,7 +40,7 @@ const PhotoGallery = () => {
           {content.galleryPhotos.map((photo, index) => (
             <div 
               key={index}
-              className={`relative group cursor-pointer overflow-hidden rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-glow ${
+              className={`relative group overflow-hidden rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-glow ${
                 photo.featured ? 'md:col-span-2 lg:col-span-1' : ''
               }`}
             >
@@ -34,11 +54,13 @@ const PhotoGallery = () => {
                 
                 {/* Download overlay */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="bg-brand-teal/90 backdrop-blur-sm rounded-full p-4 text-brand-darker">
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                  </div>
+                  <Button
+                    onClick={() => handleDownload(photo.src, photo.alt)}
+                    className="bg-brand-teal/90 hover:bg-brand-teal text-brand-darker rounded-full p-3 backdrop-blur-sm"
+                    size="icon"
+                  >
+                    <Download className="w-5 h-5" />
+                  </Button>
                 </div>
               </div>
               

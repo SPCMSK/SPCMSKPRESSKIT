@@ -1,73 +1,109 @@
-# Welcome to your Lovable project
+# Presskit Pro - Portfolio/Presskit Website
 
-## Project info
+Un sitio web moderno y editable para artistas y DJs, construido con React, TypeScript, Vite y Tailwind CSS.
 
-**URL**: https://lovable.dev/projects/8d60b8ec-cc49-4bd4-95d5-d176fe1afa89
+## ✨ Características
 
-## How can I edit this code?
+- **Panel de Administración**: Edita contenido sin conocimientos técnicos
+- **Responsive Design**: Se adapta a todos los dispositivos
+- **Galería de Fotos**: Con imágenes destacadas
+- **Videos de YouTube**: Integración directa con YouTube
+- **Sección Bio**: Biografía completa editable
+- **Enlaces Sociales**: Administra todas tus redes sociales
+- **Local Storage**: El contenido se guarda en el navegador
 
-There are several ways of editing your application.
+## 🚀 Comenzar
 
-**Use Lovable**
+### Prerrequisitos
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/8d60b8ec-cc49-4bd4-95d5-d176fe1afa89) and start prompting.
+- Node.js 18 o superior
+- npm o yarn
 
-Changes made via Lovable will be committed automatically to this repo.
+### Instalación
 
-**Use your preferred IDE**
+```bash
+# Clonar el repositorio
+git clone <tu-repo-url>
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+# Navegar al directorio
+cd presskit-pro-remix
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+# Instalar dependencias
+npm install
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Ejecutar en desarrollo
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Scripts Disponibles
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+npm run dev          # Servidor de desarrollo
+npm run build        # Build para producción
+npm run preview      # Preview del build
+npm run lint         # Linter
+```
 
-**Use GitHub Codespaces**
+## 🔧 Administración
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Acceso al Panel de Admin
 
-## What technologies are used for this project?
+1. Haz clic en el botón "Admin" en el footer
+2. Credenciales por defecto:
+   - **Email**: admin@spcmsk.com
+   - **Password**: spcmsk2024
 
-This project is built with:
+### Cambiar Credenciales
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Para cambiar las credenciales, edita el archivo `src/components/AdminPanel.tsx` en la línea donde está la validación:
 
-## How can I deploy this project?
+```tsx
+if (loginData.email === "admin@spcmsk.com" && loginData.password === "spcmsk2024") {
+```
 
-Simply open [Lovable](https://lovable.dev/projects/8d60b8ec-cc49-4bd4-95d5-d176fe1afa89) and click on Share -> Publish.
+## 🚀 Deploy
 
-## Can I connect a custom domain to my Lovable project?
+El proyecto está configurado para deployment automático en:
 
-Yes, you can!
+- **Netlify**: Usa `netlify.toml`
+- **Vercel**: Usa `vercel.json`
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Deploy en Netlify
+
+1. Conecta tu repositorio de GitHub a Netlify
+2. Build command: `npm run build`
+3. Publish directory: `dist`
+4. Deploy automáticamente
+
+### Deploy en Vercel
+
+1. Conecta tu repositorio de GitHub a Vercel
+2. Deploy automáticamente
+
+### Deploy Manual
+
+```bash
+# Build del proyecto
+npm run build
+
+# La carpeta 'dist' contiene los archivos para subir
+```
+
+## 🛠️ Tecnologías
+
+- **React 18** - Librería UI
+- **TypeScript** - Tipado estático
+- **Vite** - Build tool
+- **Tailwind CSS** - Framework CSS
+- **Radix UI** - Componentes accesibles
+- **Lucide React** - Iconos
+- **React Router** - Navegación
+
+## 📱 Compatibilidad
+
+- ✅ Chrome/Edge/Firefox/Safari modernos
+- ✅ iOS Safari
+- ✅ Android Chrome
+- ✅ Responsivo en todos los dispositivos
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
