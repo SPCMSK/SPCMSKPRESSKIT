@@ -48,18 +48,18 @@ const defaultContent: ContentData = {
   },
   bioData: {
     title: "Acerca de SPC MSK",
-    image: "/lovable-uploads/58e2466a-b5aa-48ba-a0f9-6c3b1ba2fab2.png",
+    image: "/lovable-uploads/c09e4e77-c640-4983-9eb7-f3325b42c1e0.png",
     paragraph1: "SPC MSK es un DJ y productor chileno de 24 años, oriundo de Viña del Mar, cuya identidad sonora se mueve con maestría entre la energía y la hipnosis.",
     paragraph2: "Su propuesta musical es versátil y potente, fusionando hardgroove percusivo con techno rápido y groovero. Su pasión nació a los 13 años, influenciado por gigantes del EDM como Skrillex, Kill The Noise, Flosstradamus y Zomboy.",
     paragraph3: "A los 16, se sumergió de lleno en el techno, el género que definiría su carrera. Esta trayectoria se complementa con una sólida base musical adquirida en su etapa escolar, donde aprendió a tocar guitarra, bajo y batería, elementos que enriquecen su visión como productor.",
     paragraph4: "Su carrera ha tenido un ascenso notable, marcando presencia en los line-ups de destacados clubes y escenarios como Radikals, Mimas Club, Chaisenroom, Woo Club, The House, Club La Sala, Espacio 93 Valpo y el Festival Feztival."
   },
   galleryPhotos: [
-    { src: "/lovable-uploads/c00f4485-16d9-4e30-8b0d-860d61b21251.png", alt: "SPC MSK Portrait 1", featured: true },
-    { src: "/lovable-uploads/c09e4e77-c640-4983-9eb7-f3325b42c1e0.png", alt: "SPC MSK Portrait 2", featured: false },
+    { src: "/lovable-uploads/3d9b2b10-f6ae-4042-9481-72736477a753.png", alt: "SPC MSK Portrait 1", featured: true },
+    { src: "/lovable-uploads/c09e4e77-c640-4983-9eb7-f3325b42c1e0.png", alt: "SPC MSK Portrait 2", featured: true },
     { src: "/lovable-uploads/902318a4-6539-47db-8038-8cd1d4329fcc.png", alt: "SPC MSK Portrait 3", featured: false },
-    { src: "/lovable-uploads/932b3b5e-41ab-4e3c-90fe-29421471b824.png", alt: "SPC MSK Portrait 4", featured: false },
-    { src: "/lovable-uploads/58e2466a-b5aa-48ba-a0f9-6c3b1ba2fab2.png", alt: "SPC MSK Portrait 5", featured: true }
+    { src: "/lovable-uploads/5b6ee93e-1ce7-4c83-98ef-8a7a21f5935f.png", alt: "SPC MSK Portrait 4", featured: false },
+    { src: "/lovable-uploads/d8ef8f2f-1a76-4183-a980-cdd21ce3e45e.png", alt: "SPC MSK Portrait 5", featured: false }
   ],
   socialLinks: [
     { platform: "Instagram", url: "https://www.instagram.com/spc.musik/" },
@@ -98,12 +98,12 @@ export const ContentProvider = ({ children }: { children: ReactNode }) => {
         try {
           const parsed = JSON.parse(savedContent);
           
-          // IMPORTANTE: Reemplazar completamente el contenido, no hacer merge
-          // Esto asegura que las fotos eliminadas no vuelvan a aparecer
+          // IMPORTANTE: Usar galleryPhotos fijas de defaultContent
+          // No permitir cambios en las fotos de la galería
           const completeContent = {
             heroData: parsed.heroData || defaultContent.heroData,
             bioData: parsed.bioData || defaultContent.bioData,
-            galleryPhotos: parsed.galleryPhotos || defaultContent.galleryPhotos,
+            galleryPhotos: defaultContent.galleryPhotos, // SIEMPRE usar fotos fijas
             socialLinks: parsed.socialLinks || defaultContent.socialLinks,
             videos: parsed.videos || defaultContent.videos
           };
@@ -129,7 +129,7 @@ export const ContentProvider = ({ children }: { children: ReactNode }) => {
           const completeContent = {
             heroData: parsed.heroData || defaultContent.heroData,
             bioData: parsed.bioData || defaultContent.bioData,
-            galleryPhotos: parsed.galleryPhotos || defaultContent.galleryPhotos,
+            galleryPhotos: defaultContent.galleryPhotos, // SIEMPRE usar fotos fijas
             socialLinks: parsed.socialLinks || defaultContent.socialLinks,
             videos: parsed.videos || defaultContent.videos
           };

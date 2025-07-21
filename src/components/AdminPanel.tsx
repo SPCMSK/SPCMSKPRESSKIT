@@ -25,7 +25,6 @@ const AdminPanel = ({ isOpen, onClose }: AdminPanelProps) => {
   // Local state for editing
   const [heroData, setHeroData] = useState(content.heroData);
   const [bioData, setBioData] = useState(content.bioData);
-  const [galleryPhotos, setGalleryPhotos] = useState(content.galleryPhotos);
   const [socialLinks, setSocialLinks] = useState(content.socialLinks);
   const [videos, setVideos] = useState(content.videos);
 
@@ -51,7 +50,7 @@ const AdminPanel = ({ isOpen, onClose }: AdminPanelProps) => {
     updateContent({
       heroData,
       bioData,
-      galleryPhotos,
+      galleryPhotos: content.galleryPhotos, // Mantener fotos fijas
       socialLinks,
       videos
     });
@@ -79,7 +78,6 @@ const AdminPanel = ({ isOpen, onClose }: AdminPanelProps) => {
     if (isOpen) {
       setHeroData(content.heroData);
       setBioData(content.bioData);
-      setGalleryPhotos(content.galleryPhotos);
       setSocialLinks(content.socialLinks);
       setVideos(content.videos);
     }
@@ -156,10 +154,9 @@ const AdminPanel = ({ isOpen, onClose }: AdminPanelProps) => {
             </form>
           ) : (
             <Tabs defaultValue="hero" className="w-full">
-              <TabsList className="grid w-full grid-cols-5">
+              <TabsList className="grid w-full grid-cols-4">
                 <TabsTrigger value="hero">Hero</TabsTrigger>
                 <TabsTrigger value="bio">Bio</TabsTrigger>
-                <TabsTrigger value="gallery">Galería</TabsTrigger>
                 <TabsTrigger value="videos">Videos</TabsTrigger>
                 <TabsTrigger value="social">Redes</TabsTrigger>
               </TabsList>
@@ -265,81 +262,6 @@ const AdminPanel = ({ isOpen, onClose }: AdminPanelProps) => {
                       rows={3}
                     />
                   </div>
-                </div>
-              </TabsContent>
-
-              <TabsContent value="gallery" className="space-y-4">
-                <h3 className="text-lg font-semibold">Editar Galería de Fotos</h3>
-                <div className="space-y-4">
-                  {galleryPhotos.map((photo, index) => (
-                    <Card key={index}>
-                      <CardContent className="p-4">
-                        <div className="flex gap-4 items-center">
-                          <img src={photo.src} alt={photo.alt} className="w-16 h-16 object-cover rounded" />
-                          <div className="flex-1 space-y-2">
-                            <Input
-                              value={photo.src}
-                              onChange={(e) => {
-                                const newPhotos = [...galleryPhotos];
-                                newPhotos[index].src = e.target.value;
-                                setGalleryPhotos(newPhotos);
-                              }}
-                              placeholder="URL de la imagen"
-                            />
-                            <Input
-                              value={photo.alt}
-                              onChange={(e) => {
-                                const newPhotos = [...galleryPhotos];
-                                newPhotos[index].alt = e.target.value;
-                                setGalleryPhotos(newPhotos);
-                              }}
-                              placeholder="Texto alternativo"
-                            />
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <Badge variant={photo.featured ? "default" : "secondary"}>
-                              {photo.featured ? "Destacada" : "Normal"}
-                            </Badge>
-                            <Button
-                              size="sm"
-                              variant="outline"
-                              onClick={() => {
-                                const newPhotos = [...galleryPhotos];
-                                newPhotos[index].featured = !newPhotos[index].featured;
-                                setGalleryPhotos(newPhotos);
-                              }}
-                            >
-                              Toggle
-                            </Button>
-                            <Button
-                              size="sm"
-                              variant="destructive"
-                              onClick={() => {
-                                const newPhotos = galleryPhotos.filter((_, i) => i !== index);
-                                setGalleryPhotos(newPhotos);
-                              }}
-                            >
-                              <Trash2 className="w-4 h-4" />
-                            </Button>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
-                  <Button
-                    onClick={() => {
-                      const newPhoto = {
-                        src: "",
-                        alt: "Nueva imagen",
-                        featured: false
-                      };
-                      setGalleryPhotos([...galleryPhotos, newPhoto]);
-                    }}
-                    className="w-full"
-                  >
-                    <Plus className="w-4 h-4 mr-2" />
-                    Agregar Nueva Foto
-                  </Button>
                 </div>
               </TabsContent>
 
