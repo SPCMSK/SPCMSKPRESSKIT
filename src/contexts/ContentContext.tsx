@@ -97,10 +97,24 @@ export const ContentProvider = ({ children }: { children: ReactNode }) => {
       if (savedContent) {
         try {
           const parsed = JSON.parse(savedContent);
-          setContent(prev => ({ ...prev, ...parsed }));
+          
+          // IMPORTANTE: Reemplazar completamente el contenido, no hacer merge
+          // Esto asegura que las fotos eliminadas no vuelvan a aparecer
+          const completeContent = {
+            heroData: parsed.heroData || defaultContent.heroData,
+            bioData: parsed.bioData || defaultContent.bioData,
+            galleryPhotos: parsed.galleryPhotos || defaultContent.galleryPhotos,
+            socialLinks: parsed.socialLinks || defaultContent.socialLinks,
+            videos: parsed.videos || defaultContent.videos
+          };
+          
+          setContent(completeContent);
         } catch (error) {
-          console.error('Error loading saved content:', error);
+          console.error('❌ Error loading saved content:', error);
+          setContent(defaultContent);
         }
+      } else {
+        setContent(defaultContent);
       }
     };
 
@@ -112,9 +126,16 @@ export const ContentProvider = ({ children }: { children: ReactNode }) => {
       if (e.key === 'adminData' && e.newValue) {
         try {
           const parsed = JSON.parse(e.newValue);
-          setContent(prev => ({ ...prev, ...parsed }));
+          const completeContent = {
+            heroData: parsed.heroData || defaultContent.heroData,
+            bioData: parsed.bioData || defaultContent.bioData,
+            galleryPhotos: parsed.galleryPhotos || defaultContent.galleryPhotos,
+            socialLinks: parsed.socialLinks || defaultContent.socialLinks,
+            videos: parsed.videos || defaultContent.videos
+          };
+          setContent(completeContent);
         } catch (error) {
-          console.error('Error loading updated content:', error);
+          console.error('❌ Error loading updated content:', error);
         }
       }
     };
@@ -136,8 +157,14 @@ export const ContentProvider = ({ children }: { children: ReactNode }) => {
   const updateContent = (newContent: Partial<ContentData>) => {
     setContent(prev => {
       const updated = { ...prev, ...newContent };
+      
       // Save to localStorage whenever content is updated
-      localStorage.setItem('adminData', JSON.stringify(updated));
+      try {
+        const dataToSave = JSON.stringify(updated);
+        localStorage.setItem('adminData', dataToSave);
+      } catch (error) {
+        console.error('❌ Error guardando en localStorage:', error);
+      }
       return updated;
     });
   };
