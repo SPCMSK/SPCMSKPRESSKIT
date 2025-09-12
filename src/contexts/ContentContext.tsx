@@ -59,7 +59,10 @@ const defaultContent: ContentData = {
     { src: "/lovable-uploads/c09e4e77-c640-4983-9eb7-f3325b42c1e0.png", alt: "SPC MSK Portrait 2", featured: true },
     { src: "/lovable-uploads/902318a4-6539-47db-8038-8cd1d4329fcc.png", alt: "SPC MSK Portrait 3", featured: false },
     { src: "/lovable-uploads/5b6ee93e-1ce7-4c83-98ef-8a7a21f5935f.png", alt: "SPC MSK Portrait 4", featured: false },
-    { src: "/lovable-uploads/d8ef8f2f-1a76-4183-a980-cdd21ce3e45e.png", alt: "SPC MSK Portrait 5", featured: false }
+    { src: "/lovable-uploads/5b6ee93e-1ce7-4c83-98ef-8a7a21f5935f.png", alt: "SPC MSK Portrait 5", featured: false },
+    { src: "/lovable-uploads/5b6ee93e-1ce7-4c83-98ef-8a7a21f5935f.png", alt: "SPC MSK Portrait 6", featured: false },
+    { src: "/lovable-uploads/5b6ee93e-1ce7-4c83-98ef-8a7a21f5935f.png", alt: "SPC MSK Portrait 7", featured: false },
+    { src: "/lovable-uploads/d8ef8f2f-1a76-4183-a980-cdd21ce3e45e.png", alt: "SPC MSK Portrait 8", featured: false }
   ],
   socialLinks: [
     { platform: "Instagram", url: "https://www.instagram.com/spc.musik/" },
