@@ -56,15 +56,15 @@ const Bio = () => {
             
             <div className="space-y-4 text-text-secondary">
               <p>
-                En estas instancias, ha compartido cabina con una impresionante lista de artistas de renombre como <strong className="text-brand-teal">Alarico, Grace Dahl, Zisko, Sunnyk, Jxxxo, Nplnsss y Andrea Riffo</strong>, además de colaborar activamente con colectivos como <strong className="text-brand-teal">La Oficina, Grooverom y Blackroom</strong>.
+                En estas instancias, ha compartido cabina con una lista de artistas de renombre como <strong className="text-brand-teal">Alarico, Grace Dahl, Zisko, VSSR, SERGE ANDRE, Sunnyk, Jxxxo, SCHVARTZ MAN, MARTINA HOBELAR  Nplnsss y Andrea Riffo</strong>, además de colaborar activamente con colectivos como <strong className="text-brand-teal">La Oficina, Grooverom y Blackroom</strong>.
               </p>
               
               <p>
-                Su faceta como productor se refleja en lanzamientos a través de sellos como <strong className="text-brand-teal">Inherente Project, DKN Selections, DZB Records, Marlow Records, Logia Sound Collective, Space Records e Impcore Records</strong>.
+                Su faceta como productor se refleja en lanzamientos a través de sellos como <strong className="text-brand-teal">Inherente Project, DKN Selections, DZB Records, Marlow Records, Logia Sound Collective, Space Records, Oetraxxx e IMPCORE RECORDS</strong>.
               </p>
               
               <p>
-                Su música ha recibido el soporte de artistas como <strong className="text-brand-teal">Perrokilltro, Katalina Schawrz y Pejora</strong>, validando su impacto en la escena. Comprometido con el crecimiento de su comunidad, SPC MSK es también el fundador de su propio sello y productora de eventos, <strong className="text-brand-teal">IMP Core</strong>, una plataforma para su música y para el impulso de nuevos talentos.
+                Su música ha recibido el soporte de artistas como <strong className="text-brand-teal">HAYDEN, BRENDOCHA, PEJORA Y PERROKILTRO</strong>, validando su impacto en la escena. Comprometido con el crecimiento de su comunidad, SPC MSK es también el fundador de su propio sello y productora de eventos, <strong className="text-brand-teal">IMPCORE RECORDS</strong>, una plataforma para su música y para el impulso de nuevos talentos.
               </p>
             </div>
           </div>
