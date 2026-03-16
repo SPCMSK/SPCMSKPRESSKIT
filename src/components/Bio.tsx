@@ -56,11 +56,11 @@ const Bio = () => {
             
             <div className="space-y-4 text-text-secondary">
               <p>
-                En estas instancias, ha compartido cabina con una lista de artistas de renombre como <strong className="text-brand-teal">Alarico, Grace Dahl, Zisko, VSSR, SERGE ANDRE, Sunnyk, Jxxxo, SCHVARTZ MAN, MARTINA HOBELAR  Nplnsss y Andrea Riffo</strong>, además de colaborar activamente con colectivos como <strong className="text-brand-teal">La Oficina, Grooverom y Blackroom</strong>.
+                En estas instancias, ha compartido Line Up con una lista de artistas de renombre como <strong className="text-brand-teal">Alarico, Grace Dahl, Zisko, VSSR, SERGE ANDRE, Sunnyk, Jxxxo, SCHVARTZ MAN, MARTINA HOBELAR  Nplnsss, Andrea Riffo y grandes Djs del circuito nacional</strong>, además de colaborar activamente con colectivos como <strong className="text-brand-teal">La Oficina, Grooverom, Blackroom y Technocturm</strong>.
               </p>
               
               <p>
-                Su faceta como productor se refleja en lanzamientos a través de sellos como <strong className="text-brand-teal">Inherente Project, DKN Selections, DZB Records, Marlow Records, Logia Sound Collective, Space Records, Oetraxxx e IMPCORE RECORDS</strong>.
+                Su faceta como productor se refleja en lanzamientos a través de sellos tanto nacionales como internacionales como <strong className="text-brand-teal">Transfiguration Recordings, Silencio, Xelima Records Inherente Project, DKN Selections, DZB Records, Marlow Records, Logia Sound Collective, Space Records, Oetraxxx e IMPCORE RECORDS</strong>. Incluso logrando su primer lanzamiento en vinilo junto al sello de Andrej Belak (AndyBSK) "Transfiguration Recordings".
               </p>
               
               <p>
